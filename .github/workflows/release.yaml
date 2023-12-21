@@ -33,3 +33,4 @@ jobs:
         project_path: "."
         binary_name: "upshot-blockless-extension"
         release_name: "dev"
+        extra_files: main.py README.md

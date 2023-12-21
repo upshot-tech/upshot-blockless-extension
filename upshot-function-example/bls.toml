@@ -1,0 +1,15 @@
+name = "upshot-function-example"
+version = "1.0.0"
+
+[deployment]
+nodes = 1
+
+[build]
+dir = "build"
+entry = "upshot-function-example_debug.wasm"
+command = "npm run build:debug"
+
+[build_release]
+dir = "build"
+entry = "upshot-function-example.wasm"
+command = "npm run build:release"

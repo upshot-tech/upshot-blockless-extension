@@ -18,9 +18,8 @@ type Verify struct {
 	IsCGI        bool   `json:"is_cgi"`
 }
 
-// CGIExtensionRequest is the structure that matches your JSON input.
+// CGIExtensionRequest
 type CGIExtensionRequest struct {
-	// Define the fields according to your JSON structure
 	Field1 string `json:"field1"`
 	Field2 int    `json:"field2"`
 	// Add more fields as needed
