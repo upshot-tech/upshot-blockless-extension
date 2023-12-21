@@ -66,7 +66,6 @@ func main() {
 					if err := json.Unmarshal([]byte(jsonData), &request); err != nil {
 						fmt.Println("Error parsing JSON:", err)
 					} else {
-						fmt.Println("Parsed request:", request)
 						inputProcessed = true
 					}
 				} else {
@@ -88,5 +87,6 @@ func main() {
 		fmt.Println("Error running script:", err)
 		os.Exit(1)
 	}
+
 	fmt.Printf("%s\n", stdoutStderr)
 }
