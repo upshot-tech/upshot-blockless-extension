@@ -81,7 +81,8 @@ func main() {
 
 	// Proceed with the main loop of your program
 	// For example, executing a Python script
-	cmd := exec.Command("python3", "main.py")
+	// Todo this needs to be found in CWD, make this better
+	cmd := exec.Command("python3", "/app/runtime/extensions/main.py")
 	stdoutStderr, err := cmd.CombinedOutput()
 	if err != nil {
 		fmt.Println("Error running script:", err)
