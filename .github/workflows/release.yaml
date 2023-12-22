@@ -32,5 +32,4 @@ jobs:
         goversion: "https://dl.google.com/go/go1.21.5.linux-amd64.tar.gz"
         project_path: "."
         binary_name: "upshot-blockless-extension"
-        release_name: "dev"
         extra_files: main.py README.md
