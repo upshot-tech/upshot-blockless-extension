@@ -20,7 +20,7 @@ type Verify struct {
 
 // CGIExtensionRequest
 type CGIExtensionRequest struct {
-	Arguments []string `json:"arguments"` // Renamed Field1 to Arguments and changed type to []string
+	Arguments []string `json:"arguments"`
 }
 
 func main() {
