@@ -20,9 +20,7 @@ type Verify struct {
 
 // CGIExtensionRequest
 type CGIExtensionRequest struct {
-	Field1 string `json:"field1"`
-	Field2 int    `json:"field2"`
-	// Add more fields as needed
+	Arguments []string `json:"arguments"` // Renamed Field1 to Arguments and changed type to []string
 }
 
 func main() {
@@ -79,10 +77,9 @@ func main() {
 		fmt.Println("No valid input provided, continuing with the main loop.")
 	}
 
-	// Proceed with the main loop of your program
-	// For example, executing a Python script
-	// Todo this needs to be found in CWD, make this better
-	cmd := exec.Command("python3", "/app/runtime/extensions/main.py")
+	// Execute the Python script with arguments
+	cmdArgs := append([]string{"/app/runtime/extensions/main.py"}, request.Arguments...)
+	cmd := exec.Command("python3", cmdArgs...)
 	stdoutStderr, err := cmd.CombinedOutput()
 	if err != nil {
 		fmt.Println("Error running script:", err)
