@@ -77,8 +77,16 @@ func main() {
 		fmt.Println("No valid input provided, continuing with the main loop.")
 	}
 
+	scriptPath := "./main.py"
+	if _, err := os.Stat(scriptPath); os.IsNotExist(err) {
+		scriptPath = "/app/main.py"
+		if _, err := os.Stat(scriptPath); os.IsNotExist(err) {
+			scriptPath = "/app/runtime/extensions/main.py"
+		}
+	}
+
 	// Execute the Python script with arguments
-	cmdArgs := append([]string{"/app/runtime/extensions/main.py"}, request.Arguments...)
+	cmdArgs := append([]string{ scriptPath }, request.Arguments...)
 	cmd := exec.Command("python3", cmdArgs...)
 	stdoutStderr, err := cmd.CombinedOutput()
 	if err != nil {
