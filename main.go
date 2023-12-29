@@ -94,5 +94,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("%s\n", stdoutStderr)
+	fmt.Printf("%s", stdoutStderr)
 }
