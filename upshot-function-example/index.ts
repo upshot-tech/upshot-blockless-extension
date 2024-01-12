@@ -19,8 +19,6 @@ if (envVars) {
                 const SEP = "\r\n";
                 let buf = new Array<u8>(1024);
                 let req = `{"arguments":["${environmentValue.toString()}"]}`;
-
-                Console.log(req)
                 let req_len = req.length;
                 let head = `${req_len}${SEP}`;
                 command.stdinWriteString(head);
