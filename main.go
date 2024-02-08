@@ -30,8 +30,8 @@ func main() {
 
 	// Create the Verify struct
 	verify := Verify{
-		Alias:        "cgi-upshot",
-		Description:  "upshot cgi extension for blockless runtime",
+		Alias:        "cgi-allora-infer",
+		Description:  "allora cgi extension for blockless runtime",
 		IsCGI:        true,
 	}
 
@@ -77,7 +77,7 @@ func main() {
 		fmt.Println("No valid input provided, continuing with the main loop.")
 	}
 
-	scriptPath := "./main.py"
+	scriptPath := "/tmp/runtime/extensions/main.py"
 	if _, err := os.Stat(scriptPath); os.IsNotExist(err) {
 		scriptPath = "/app/main.py"
 		if _, err := os.Stat(scriptPath); os.IsNotExist(err) {

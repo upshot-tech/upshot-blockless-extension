@@ -1,4 +1,4 @@
-name = "upshot-function-example"
+name = "allora-inference-function"
 version = "1.0.0"
 
 [deployment]
@@ -6,10 +6,10 @@ nodes = 1
 
 [build]
 dir = "build"
-entry = "upshot-function-example_debug.wasm"
+entry = "allora-inference-function_debug.wasm"
 command = "npm run build:debug"
 
 [build_release]
 dir = "build"
-entry = "upshot-function-example.wasm"
+entry = "allora-inference-function.wasm"
 command = "npm run build:release"
