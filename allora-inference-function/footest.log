@@ -1,0 +1,8 @@
+[2024-01-12T04:42:36Z ERROR bls_runtime] panicked at 'called `Result::unwrap()` on an `Err` value: failed to read input file
+    
+    Caused by:
+        No such file or directory (os error 2)', /Users/runner/work/bls-runtime/bls-runtime/blockless/src/lib.rs:167:68
+[2024-01-12T04:43:09Z ERROR bls_runtime] panicked at 'called `Result::unwrap()` on an `Err` value: failed to read input file
+    
+    Caused by:
+        No such file or directory (os error 2)', /Users/runner/work/bls-runtime/bls-runtime/blockless/src/lib.rs:167:68

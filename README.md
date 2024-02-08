@@ -1,7 +1,7 @@
-README for Upshot Blockless Extension
+README for Allora Inference Extension
 =====================================
 
-This document provides instructions on how to use the Makefile for building the Upshot Blockless Extension.
+This document provides instructions on how to use the Makefile for building the extension.
 
 Prerequisites
 -------------
@@ -16,7 +16,7 @@ Makefile Targets
 
 *   `build`: Compiles the Go source file into a binary.
 *   `clean`: Removes the compiled binary and other generated files.
-*   `example`: Runs a Node.js build script in the `upshot-function-example` directory.
+*   `example`: Runs a Node.js build script in the `allora-function-example` directory.
 *   `setup`: Downloads and extracts the appropriate blockless runtime for the current OS and architecture.
 *   `test`: Runs a test using the blockless runtime and the built wasm file.
 

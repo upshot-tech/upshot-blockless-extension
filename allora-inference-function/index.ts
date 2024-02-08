@@ -2,17 +2,16 @@ import { Console } from "as-wasi/assembly";
 import { CgiCommand, cgiExtendsList } from "@blockless/sdk/assembly/cgi";
 import { memory } from "@blockless/sdk/assembly";
 import { buffer2string } from "@blockless/sdk/assembly/strings";
-
 // env UPSHOT_ARG_PARAMS=FOO BLS_LIST_VARS=UPSHOT_ARG_PARAMS
 let envVars = new memory.EnvVars().read().toJSON();
 if (envVars) {
-	let environmentValue = envVars.get("UPSHOT_ARG_PARAMS");
+	let environmentValue = envVars.get("ALLORA_ARG_PARAMS");
 	if (environmentValue) {
 		// get as list of the extensions available
 		let l = cgiExtendsList();
 
 		if (l != null) {
-			let command = new CgiCommand("cgi-upshot", null, null);
+			let command = new CgiCommand("cgi-allora-infer", null, null);
 			let rs = command.exec();
 			if (rs == true) {
 				const SEP = "\r\n";
@@ -28,8 +27,20 @@ if (envVars) {
 				all_buff = all_buff.concat(buf.slice(0, l));
 				let read_string = buffer2string(all_buff, all_buff.length);
 				Console.log(read_string);
+			} else {
+				Console.log(
+					"error: no response from the inference extension, source: cgi-allora-infer",
+				);
 			}
 			command.close();
+		} else {
+			Console.log(
+				"error: inference extension not available, source: cgi-allora-infer",
+			);
 		}
+	} else {
+		Console.log(
+			"error: inference param not available: ALLORA_ARG_PARAMS, source: cgi-allora-infer",
+		);
 	}
 }

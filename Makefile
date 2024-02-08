@@ -4,7 +4,7 @@
 GOCMD=go
 GOBUILD=$(GOCMD) build
 GOCLEAN=$(GOCMD) clean
-BINARY_NAME=upshot-blockless-extension
+BINARY_NAME=allora-offchain-extension
 SOURCE_FILE=main.go
 
 # Detect the operating system and architecture
@@ -48,7 +48,7 @@ clean:
 	rm -rf $(BINARY_NAME)
 
 example:
-	cd upshot-function-example && npm run build:release
+	cd allora-inference-function && npm run build:release
 
 setup:
 	@echo "\n📥 Downloading and extracting runtime...\n"
@@ -58,6 +58,7 @@ setup:
 	@echo "\n✅ Done.\n"
 
 test: example build
-	/tmp/runtime/bls-runtime upshot-function-example/build/release.wasm - --drivers-root-path=$(PWD)
+	export ALLORA_ARG_PARAMS=yuga BLS_LIST_VARS=ALLORA_ARG_PARAMS; \
+	/tmp/runtime/bls-runtime allora-inference-function/build/release.wasm - --drivers-root-path=$(PWD)
 
 .PHONY: all build clean example setup test
